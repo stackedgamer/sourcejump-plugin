@@ -10,7 +10,7 @@ Discussion happens on the **SourceJump Discord**, in the [#plugin-topics](https:
 
 - Discuss in the topic for that section.
 - **Missing a question?** Ask it in that section's topic. It gets added to the end of the list, so question numbers never change.
-- **Missing a whole section, or think something here is wrong?** Post in the **💡 Missing something?** topic. That includes decisions already marked as agreed.
+- **Missing a whole section, or think something here is wrong?** Post in the [💡 Missing something?](https://discord.com/channels/333865962568941568/1557356307835650139) topic. That includes decisions already marked as agreed.
 - 👍 the messages you agree with. Thumbs-up is how we measure support.
 - When a topic settles, the outcome is written into **Current consensus** below and added to the [Decision log](#decision-log).
 - If it isn't written here, it hasn't been decided.
