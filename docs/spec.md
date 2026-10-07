@@ -6,7 +6,7 @@ It is a living document. It changes as discussions conclude.
 
 ## How to take part
 
-Discussion happens on the **SourceJump Discord**, in the [#plugin-topics](https://discord.gg/RYP5G4tuwX) forum. Each section below has its own topic there.
+Discussion happens on the **SourceJump Discord**, in the [#plugin-topics](https://discord.gg/RYP5G4tuwX) forum. Each section below links to its own topic there. If a topic link doesn't open, join through the invite link first.
 
 - Discuss in the topic for that section. Ideas that don't fit an existing topic go in #suggestions.
 - 👍 the messages you agree with. Thumbs-up is how we measure support.
@@ -40,7 +40,7 @@ Each section has a short **direction**, the **open questions**, and the **curren
 
 ## 2. Access & API keys
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353440575885312)
 
 **Direction**
 Keyless servers get a limited, read-only feature set. Submitting records and anti-cheat reports requires a key. The current setup, with a separate key per plugin, goes away.
@@ -57,7 +57,7 @@ Keyless servers get a limited, read-only feature set. Submitting records and ant
 
 ## 3. Timer support
 
-**Status:** Not discussed
+**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353437761634314)
 
 **Direction**
 Every server currently runs shavit's timer. The plugin needs to read times, styles, tracks and zones from the timer.
@@ -73,7 +73,7 @@ _None yet._
 
 ## 4. Record & time submission
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353434233970749)
 
 **Direction**
 Authorized servers send finished runs to SourceJump. The old plugin only sends world records (normal style, main track), plus every existing record when it first runs.
@@ -91,7 +91,7 @@ Authorized servers send finished runs to SourceJump. The old plugin only sends w
 
 ## 5. Styles & tracks
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353430971060304)
 
 **Direction**
 All styles should be supported, not just autobhop/normal on the main track.
@@ -108,7 +108,7 @@ All styles should be supported, not just autobhop/normal on the main track.
 
 ## 6. Server settings enforcement
 
-**Status:** Not discussed
+**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353427061702792)
 
 **Direction**
 Every server that submits times should play on a level playing field. This section is about *how* that is checked. *Which* settings are required is decided in [Gameplay rules](#7-gameplay-rules).
@@ -124,7 +124,7 @@ _None yet._
 
 ## 7. Gameplay rules
 
-**Status:** Not discussed
+**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353422284390491)
 
 **Direction**
 Defines the gameplay behaviors, cvars and plugins a server must (or must not) run to submit times. The first step is collecting the list of rules that need deciding. Any rule that needs a longer debate gets its own topic.
@@ -149,7 +149,7 @@ _None yet._
 
 ## 8. Maps
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353418178302018)
 
 **Direction**
 Times are accepted from any map. This section is about which maps count toward rankings and leaderboards, and how that is decided. There are many low-effort maps that players may not want to grind to rank.
@@ -166,7 +166,7 @@ Times are accepted from any map. This section is about which maps count toward r
 
 ## 9. Map tiers & points
 
-**Status:** Not discussed
+**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353408518692924)
 
 **Direction**
 Defines how maps are tiered and how points are calculated, so that rankings reflect how hard and how relevant a map is.
@@ -183,7 +183,7 @@ _None yet._
 
 ## 10. Zones
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353404915785799)
 
 **Direction**
 SourceJump stores zones for every map (start, end, bonuses, and possibly others). Servers that submit times must use these zones, so everybody runs the same zones.
@@ -201,7 +201,7 @@ SourceJump stores zones for every map (start, end, bonuses, and possibly others)
 
 ## 11. Anti-cheat reporting
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353398695628830)
 
 **Direction**
 The plugin forwards anti-cheat detections to SourceJump. [BASH 2.0](https://github.com/hermansimensen/bash2) is the primary supported anti-cheat.
@@ -221,7 +221,7 @@ The old anti-cheat plugin also depends on [REST in Pawn](https://forums.alliedmo
 
 ## 12. Replays
 
-**Status:** Not discussed
+**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353393356275852)
 
 **Direction**
 The old plugin uploads a replay file with each world record, but SourceJump doesn't currently use them for anything. Some server owners have reported performance drops while a replay is being sent.
@@ -239,7 +239,7 @@ _None yet._
 
 ## 13. World record display
 
-**Status:** In discussion
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353390185652244)
 
 **Direction**
 Show the current SourceJump world records for the map the server is on, similar to the current SJWR plugin ([wrsj.sp](https://github.com/rtldg/wrsj/blob/main/wrsj.sp)).
