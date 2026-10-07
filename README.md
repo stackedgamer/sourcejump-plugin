@@ -12,6 +12,6 @@ The specification lives in **[docs/spec.md](docs/spec.md)**. It covers each part
 
 ## Getting involved
 
-- Discuss open questions on the SourceJump Discord or in this repository's Discussions.
-- Suggest changes to the spec by opening an issue or a pull request.
+- Join the discussion in the [#plugin-topics](https://discord.gg/RYP5G4tuwX) forum on the SourceJump Discord. Each spec section has its own topic.
+- 👍 the messages you agree with. That's how we measure support.
 - Once a topic is settled, its outcome is written into the spec and added to the decision log.
