@@ -8,7 +8,9 @@ It is a living document. It changes as discussions conclude.
 
 Discussion happens on the **SourceJump Discord**, in the [#plugin-topics](https://discord.gg/RYP5G4tuwX) forum. Each section below links to its own topic there. If a topic link doesn't open, join through the invite link first.
 
-- Discuss in the topic for that section. Ideas that don't fit an existing topic go in #suggestions.
+- Discuss in the topic for that section.
+- **Missing a question?** Ask it in that section's topic. It gets added to the end of the list, so question numbers never change.
+- **Missing a whole section, or think something here is wrong?** Post in the **💡 Missing something?** topic. That includes decisions already marked as agreed.
 - 👍 the messages you agree with. Thumbs-up is how we measure support.
 - When a topic settles, the outcome is written into **Current consensus** below and added to the [Decision log](#decision-log).
 - If it isn't written here, it hasn't been decided.
@@ -46,9 +48,9 @@ Each section has a short **direction**, the **open questions**, and the **curren
 Keyless servers get a limited, read-only feature set. Submitting records and anti-cheat reports requires a key. The current setup, with a separate key per plugin, goes away.
 
 **Open questions**
-- One key per server covering every feature, or separate keys/permissions per feature?
-- Exactly which features are available without a key?
-- How are keys requested, issued and revoked?
+1. One key per server covering every feature, or separate keys/permissions per feature?
+2. Exactly which features are available without a key?
+3. How are keys requested, issued and revoked?
 
 **Current consensus**
 - Records and anti-cheat reports require a key issued by SourceJump.
@@ -63,8 +65,8 @@ Keyless servers get a limited, read-only feature set. Submitting records and ant
 Every server currently runs shavit's timer. The plugin needs to read times, styles, tracks and zones from the timer.
 
 **Open questions**
-- Is shavit the only supported timer, or should others be supported?
-- If only shavit: which version(s) are supported?
+1. Is shavit the only supported timer, or should others be supported?
+2. If only shavit: which version(s) are supported?
 
 **Current consensus**
 _None yet._
@@ -79,9 +81,9 @@ _None yet._
 Authorized servers send finished runs to SourceJump. The old plugin only sends world records (normal style, main track), plus every existing record when it first runs.
 
 **Open questions**
-- Send only records, or every completed run? Sending every run would allow tracking individual player progress.
-- Should a server's existing times be sent when it first connects, given they may have been set before the server followed SourceJump's rules?
-- What data does a submission include (time, jumps, strafes, sync, date, tickrate, etc.)?
+1. Send only records, or every completed run? Sending every run would allow tracking individual player progress.
+2. Should a server's existing times be sent when it first connects, given they may have been set before the server followed SourceJump's rules?
+3. What data does a submission include (time, jumps, strafes, sync, date, tickrate, etc.)?
 
 **Current consensus**
 - Submitting requires an API key.
@@ -97,9 +99,9 @@ Authorized servers send finished runs to SourceJump. The old plugin only sends w
 All styles should be supported, not just autobhop/normal on the main track.
 
 **Open questions**
-- How do we make sure a time submitted as one style was actually run on that style? For example, a sideways run must never count as normal.
-- Who defines the list of supported styles and their settings?
-- Are bonus tracks supported?
+1. How do we make sure a time submitted as one style was actually run on that style? For example, a sideways run must never count as normal.
+2. Who defines the list of supported styles and their settings?
+3. Are bonus tracks supported?
 
 **Current consensus**
 - Support all styles, not only normal.
@@ -114,8 +116,8 @@ All styles should be supported, not just autobhop/normal on the main track.
 Every server that submits times should play on a level playing field. This section is about *how* that is checked. *Which* settings are required is decided in [Gameplay rules](#7-gameplay-rules).
 
 **Open questions**
-- How do we enforce or verify that a server uses the agreed settings, zones and plugins?
-- What happens when a server is out of compliance: submissions blocked, flagged, or something else?
+1. How do we enforce or verify that a server uses the agreed settings, zones and plugins?
+2. What happens when a server is out of compliance: submissions blocked, flagged, or something else?
 
 **Current consensus**
 _None yet._
@@ -130,8 +132,8 @@ _None yet._
 Defines the gameplay behaviors, cvars and plugins a server must (or must not) run to submit times. The first step is collecting the list of rules that need deciding. Any rule that needs a longer debate gets its own topic.
 
 **Open questions**
-- Which gameplay behaviors, cvars and plugins need a decision?
-- For each: is it required, forbidden, or left to the server?
+1. Which gameplay behaviors, cvars and plugins need a decision?
+2. For each: is it required, forbidden, or left to the server?
 
 **Rules**
 
@@ -155,9 +157,9 @@ _None yet._
 Times are accepted from any map. This section is about which maps count toward rankings and leaderboards, and how that is decided. There are many low-effort maps that players may not want to grind to rank.
 
 **Open questions**
-- Should every map be ranked, or only some?
-- If only some: what makes a map eligible, and who decides?
-- How are new maps added or reviewed?
+1. Should every map be ranked, or only some?
+2. If only some: what makes a map eligible, and who decides?
+3. How are new maps added or reviewed?
 
 **Current consensus**
 - Times are accepted from any map.
@@ -172,9 +174,9 @@ Times are accepted from any map. This section is about which maps count toward r
 Defines how maps are tiered and how points are calculated, so that rankings reflect how hard and how relevant a map is.
 
 **Open questions**
-- Should maps be tiered by difficulty? If so, how many tiers, and who assigns them?
-- How are points calculated (map tier, placement, time relative to the WR, style, etc.)?
-- How do rankings handle different styles and tracks?
+1. Should maps be tiered by difficulty? If so, how many tiers, and who assigns them?
+2. How are points calculated (map tier, placement, time relative to the WR, style, etc.)?
+3. How do rankings handle different styles and tracks?
 
 **Current consensus**
 _None yet._
@@ -189,10 +191,10 @@ _None yet._
 SourceJump stores zones for every map (start, end, bonuses, and possibly others). Servers that submit times must use these zones, so everybody runs the same zones.
 
 **Open questions**
-- How do zones get submitted, reviewed and accepted into the database?
-- Which zone types are covered?
-- What happens on a map that has no approved zones yet?
-- Can keyless servers download zones too?
+1. How do zones get submitted, reviewed and accepted into the database?
+2. Which zone types are covered?
+3. What happens on a map that has no approved zones yet?
+4. Can keyless servers download zones too?
 
 **Current consensus**
 - SourceJump is the source of zones for submitting servers.
@@ -209,9 +211,9 @@ The plugin forwards anti-cheat detections to SourceJump. [BASH 2.0](https://gith
 The old anti-cheat plugin also depends on [REST in Pawn](https://forums.alliedmods.net/showthread.php?t=298024) and [SteamWorks](https://forums.alliedmods.net/showthread.php?t=229556).
 
 **Open questions**
-- Should other anti-cheats be supported besides BASH?
-- What data is sent with a detection?
-- How are detection reports used on the SourceJump side (flagging runs, reviewing players, etc.)?
+1. Should other anti-cheats be supported besides BASH?
+2. What data is sent with a detection?
+3. How are detection reports used on the SourceJump side (flagging runs, reviewing players, etc.)?
 
 **Current consensus**
 - Requires an API key.
@@ -227,10 +229,10 @@ The old anti-cheat plugin also depends on [REST in Pawn](https://forums.alliedmo
 The old plugin uploads a replay file with each world record, but SourceJump doesn't currently use them for anything. Some server owners have reported performance drops while a replay is being sent.
 
 **Open questions**
-- Should the plugin keep sending replays? If so, for which runs (WRs only, top times, everything)?
-- What would replays be used for: a web replay viewer, run verification, something else?
-- How can uploading be made lighter on the server (compression, uploading in the background, etc.)?
-- Should servers be able to download WR replays to play back in-game?
+1. Should the plugin keep sending replays? If so, for which runs (WRs only, top times, everything)?
+2. What would replays be used for: a web replay viewer, run verification, something else?
+3. How can uploading be made lighter on the server (compression, uploading in the background, etc.)?
+4. Should servers be able to download WR replays to play back in-game?
 
 **Current consensus**
 _None yet._
@@ -245,8 +247,8 @@ _None yet._
 Show the current SourceJump world records for the map the server is on, similar to the current SJWR plugin ([wrsj.sp](https://github.com/rtldg/wrsj/blob/main/wrsj.sp)).
 
 **Open questions**
-- What's shown in-game, and through which commands or menus?
-- Is this available to keyless servers?
+1. What's shown in-game, and through which commands or menus?
+2. Is this available to keyless servers?
 
 **Current consensus**
 - Supports every style, not only normal.
