@@ -87,7 +87,7 @@ Authorized servers send finished runs to SourceJump. The old plugin only sends w
 
 **Current consensus**
 - Submitting requires an API key.
-- Submitting is disabled if the server doesn't meet the anti-cheat requirement (see [Anti-cheat](#11-anti-cheat-reporting)).
+- Submitting is disabled if the server doesn't meet the anti-cheat requirement (see [Anti-cheat](#9-anti-cheat-reporting)).
 
 ---
 
@@ -149,41 +149,7 @@ _None yet._
 
 ---
 
-## 8. Maps
-
-**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353418178302018)
-
-**Direction**
-Times are accepted from any map. This section is about which maps count toward rankings and leaderboards, and how that is decided. There are many low-effort maps that players may not want to grind to rank.
-
-**Open questions**
-1. Should every map be ranked, or only some?
-2. If only some: what makes a map eligible, and who decides?
-3. How are new maps added or reviewed?
-
-**Current consensus**
-- Times are accepted from any map.
-
----
-
-## 9. Map tiers & points
-
-**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353408518692924)
-
-**Direction**
-Defines how maps are tiered and how points are calculated, so that rankings reflect how hard and how relevant a map is.
-
-**Open questions**
-1. Should maps be tiered by difficulty? If so, how many tiers, and who assigns them?
-2. How are points calculated (map tier, placement, time relative to the WR, style, etc.)?
-3. How do rankings handle different styles and tracks?
-
-**Current consensus**
-_None yet._
-
----
-
-## 10. Zones
+## 8. Zones
 
 **Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353404915785799)
 
@@ -201,7 +167,7 @@ SourceJump stores zones for every map (start, end, bonuses, and possibly others)
 
 ---
 
-## 11. Anti-cheat reporting
+## 9. Anti-cheat reporting
 
 **Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353398695628830)
 
@@ -221,7 +187,7 @@ The old anti-cheat plugin also depends on [REST in Pawn](https://forums.alliedmo
 
 ---
 
-## 12. Replays
+## 10. Replays
 
 **Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353393356275852)
 
@@ -239,7 +205,7 @@ _None yet._
 
 ---
 
-## 13. World record display
+## 11. World record display
 
 **Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353390185652244)
 
@@ -274,7 +240,6 @@ Settled decisions, newest first. Entries marked *initial direction* were set by 
 | Date | Section | Decision | Source |
 |---|---|---|---|
 | 2026-10-07 | Goals | Counter-Strike: Source only. | Initial direction |
-| 2026-10-07 | Maps | Times are accepted from any map. | Initial direction |
 | 2026-10-07 | Goals | One unified plugin, rewritten from scratch; old plugins are reference only. | Initial direction |
 | 2026-10-07 | Access & API keys | Anyone can run the plugin; records and AC reports require a SourceJump-issued key. | Initial direction |
 | 2026-10-07 | Anti-cheat | No supported anti-cheat installed → no record submission. BASH 2.0 is primary. | Initial direction |
