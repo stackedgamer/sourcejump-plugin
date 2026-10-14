@@ -141,11 +141,11 @@ Add a row for each rule that comes up, and record its outcome here.
 
 | Rule | Description | Status | Decision |
 |---|---|---|---|
-| Landfix | _TBD_ | Not discussed | — |
+| Landfix | One landfix for everyone, always on. Which variant (Haze or no-time-loss) is being polled. | In discussion | No toggling (poll: 87–27) |
 | _…_ | | | |
 
 **Current consensus**
-_None yet._
+- Landfix can't be toggled; everyone plays with the same landfix, always on. (Poll: 87–27.)
 
 ---
 
@@ -189,7 +189,7 @@ The old anti-cheat plugin also depends on [REST in Pawn](https://forums.alliedmo
 
 ## 10. Replays
 
-**Status:** Not discussed · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353393356275852)
+**Status:** In discussion · **Discuss:** [Discord topic](https://discord.com/channels/333865962568941568/1557353393356275852)
 
 **Direction**
 The old plugin uploads a replay file with each world record, but SourceJump doesn't currently use them for anything. Some server owners have reported performance drops while a replay is being sent.
@@ -201,7 +201,11 @@ The old plugin uploads a replay file with each world record, but SourceJump does
 4. Should servers be able to download WR replays to play back in-game?
 
 **Current consensus**
-_None yet._
+- The plugin sends a replay with every submitted run, on every style SourceJump supports. Normal-style replays are public. (Poll: 24–2.)
+- Replays can be downloaded from the website, which gets a replay viewer.
+- Servers can download replays and play them in-game.
+- Uploading must not lag the server.
+- Still open: segmented replays (leaning: sent, but kept private), very long runs, demo files.
 
 ---
 
@@ -239,6 +243,8 @@ Settled decisions, newest first. Entries marked *initial direction* were set by 
 
 | Date | Section | Decision | Source |
 |---|---|---|---|
+| 2026-10-14 | Gameplay rules | Landfix is always on, no toggling. Variant still being decided. | [Poll](https://discord.com/channels/333865962568941568/1558636721191788655) (87–27) |
+| 2026-10-14 | Replays | A replay is sent with every run on every supported style; normal replays are public, downloadable and viewable on the site; servers can play them in-game; uploading must not lag the server. | [Topic](https://discord.com/channels/333865962568941568/1557353393356275852), poll 24–2 |
 | 2026-10-07 | Goals | Counter-Strike: Source only. | Initial direction |
 | 2026-10-07 | Goals | One unified plugin, rewritten from scratch; old plugins are reference only. | Initial direction |
 | 2026-10-07 | Access & API keys | Anyone can run the plugin; records and AC reports require a SourceJump-issued key. | Initial direction |

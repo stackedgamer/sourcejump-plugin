@@ -10,6 +10,10 @@ The new, unified SourceMod plugin for [SourceJump](https://sourcejump.net). It r
 
 The specification lives in **[docs/spec.md](docs/spec.md)**. It covers each part of the plugin, the open questions, and what has been agreed so far. It is the official record of decisions.
 
+## Blueprint
+
+**[docs/blueprint.md](docs/blueprint.md)** describes how the plugin is built: its parts, how they fit together, and what the first version includes. **[docs/build-prompt.md](docs/build-prompt.md)** is the prompt used to start building it. Both are open for review before any code is written.
+
 ## Getting involved
 
 - Join the discussion in the [#plugin-topics](https://discord.gg/RYP5G4tuwX) forum on the SourceJump Discord. Each spec section has its own topic.
