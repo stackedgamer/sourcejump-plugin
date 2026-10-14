@@ -8,7 +8,7 @@ This document describes **how the plugin is built**: its parts, how they fit tog
 
 ## In one paragraph
 
-`sourcejump.smx` is a single SourceMod plugin that replaces today's three SourceJump plugins (database, anti-cheat logs, SJWR). Any server can install it. Without an API key, the server gets SourceJump's zones, records display and rules. With a key, it also sends every finished run, its replay and anti-cheat detections to SourceJump. Before sending anything, the plugin checks that the server plays by SourceJump's rules. If it doesn't, nothing is sent until it's fixed.
+`sourcejump.smx` is a single SourceMod plugin that replaces today's three SourceJump plugins (database, anti-cheat logs, SJWR). Any server can install it. Without an API key, the server gets SourceJump's zones, records display and rules. With a key, it also sends every finished run, the replays SourceJump asks for, and anti-cheat detections to SourceJump. Before sending anything, the plugin checks that the server plays by SourceJump's rules. If it doesn't, nothing is sent until it's fixed.
 
 ---
 
@@ -27,7 +27,7 @@ This document describes **how the plugin is built**: its parts, how they fit tog
 ```
                       ┌──────────────────────── SourceJump API ───────────────────────┐
                       │  public: ruleset · zones · records · replays · latest version │
-                      │  keyed:  handshake · runs · replay upload · AC detections     │
+                      │  keyed:  handshake · runs · AC detections  (+ replay uploads) │
                       └───────────────▲───────────────────────────────┬───────────────┘
                                       │ background HTTPS              │
  ┌─────────────────── game server ────┼───────────────────────────────┼───────────────┐
@@ -75,7 +75,7 @@ Each module is one file under `scripting/sourcejump/`. Only `timer_shavit.sp` ta
 | `timer_shavit` | Read finished runs, styles, tracks and zones from shavit | — |
 | `styles` | Recognize which server styles are SourceJump's ranked styles | No |
 | `runs` | Capture finished runs, keep them in a local queue, send them | **Yes** |
-| `replays` | Upload the replay for each sent run, in the background | **Yes** |
+| `replays` | Keep a copy of each run's replay until SourceJump says whether it wants it; upload it in the background if so | **Yes** |
 | `zones` | Point shavit at SourceJump's zones; fingerprint the zones in use | No |
 | `records` | Show SourceJump records in-game (today's SJWR) | No |
 | `anticheat` | Forward BASH detections | **Yes** |
@@ -100,7 +100,16 @@ This answers the spec's question of how a "sideways" time can never be sent as n
 
 ### Replays
 
-shavit already records a replay for every run and tells the plugin where it saved the file. The plugin uploads that file, from the queue, between runs. Agreed so far: replays are sent for every run, and the upload must not lag the server ([spec §10](spec.md#10-replays)). Large files are compressed by SourceJump when they arrive, not on the game server.
+shavit records every run, but on its own only saves the server record's replay to disk. When a ranked run finishes, the plugin asks shavit to also save a copy into the plugin's queue folder (shavit provides a hook for exactly this).
+
+**SourceJump decides which replays it wants, not the plugin.** When a run is submitted, the API answers whether it wants that run's replay. If it does, the answer includes a **temporary upload link**. The plugin uploads the file to that link from the queue, between runs, then deletes its copy. If the API doesn't want it, the copy is deleted straight away.
+
+- The policy can change without a plugin update. For example, SourceJump can ask only for a player's personal best on that style.
+- Only SourceJump knows a player's personal best across *all* servers. A run can be a player's best on SourceJump without being their best on that particular server, so the server can't make this call itself.
+- The upload link can point anywhere: the API itself while developing, or separate file storage later. Heavy traffic never has to pass through the main backend.
+- Large files are compressed by SourceJump after they arrive, not on the game server.
+
+The upload must not lag the server ([spec §10](spec.md#10-replays)).
 
 Watching SourceJump replays in-game (`!wrosr`-style) comes after the foundation. Replays are then fetched **when someone asks to watch one**, not on every map load: a map can have a WR per style and track, which adds up to a lot of downloading for replays nobody may watch.
 
@@ -143,7 +152,7 @@ A versioned JSON document served publicly by SourceJump. The plugin applies it o
 | `plugins.forbidden` | Names or file hashes that block submissions |
 | `styles` | Ranked styles: SourceJump key, display name, required settings |
 | `zones` | Zone source URL, zone types SourceJump controls |
-| `features` | Switches, e.g. which styles get replay uploads |
+| `features` | Switches for optional behaviour |
 
 ### Starting values (draft)
 
@@ -179,8 +188,7 @@ All endpoints are under `/v1/`, so the API can change later without breaking ser
 | `GET` | `/v1/replays/{run_id}` | No | Download a replay (for in-game playback, later) |
 | `GET` | `/v1/plugin/latest` | No | Latest plugin version + file hash |
 | `POST` | `/v1/servers/handshake` | Optional | On map start: versions, loaded plugins, compliance state → key status |
-| `POST` | `/v1/runs` | Yes | Submit a finished run |
-| `PUT` | `/v1/runs/{run_id}/replay` | Yes | Upload its replay |
+| `POST` | `/v1/runs` | Yes | Submit a finished run. The response says whether its replay is wanted and, if so, includes a temporary upload link |
 | `POST` | `/v1/anticheat/detections` | Yes | Forward a BASH detection |
 
 **A run submission includes (draft):** run ID, player SteamID64 and name, map, SourceJump style key, track, time, jumps, strafes, sync, perfs, average/max velocity, finish timestamp, tickrate, plugin version, ruleset version, zone fingerprint, compliance state. What a submission should contain is still open in [spec §4.3](spec.md#4-record--time-submission), so the format is easy to extend.

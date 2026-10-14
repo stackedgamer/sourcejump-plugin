@@ -75,6 +75,8 @@ the next.
 - mock-api/: a small dependency-free server implementing every /v1 endpoint in
   blueprint.md. It serves a sample ruleset, zones and records from JSON files
   and logs every request, so submissions and uploads can be inspected.
+  Run submissions answer with a temporary upload link that points back at the
+  mock server, the same way the real API will point at file storage.
 - docs/development.md: how to build, run the mock API and point a local test
   server at it.
 
